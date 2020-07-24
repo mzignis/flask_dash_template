@@ -1,0 +1,41 @@
+{% extends 'bootstrap/base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block content %}
+<center>
+   <div class="center-vertical">
+       <h2>Log in</h2>
+       <br>
+       <form action="" method="post" novalidate>
+           {{ form.hidden_tag() }}
+           {{ wtf.form_field(form.username, placeholder='Username') }}
+           {{ wtf.form_field(form.password, placeholder='Password') }}
+           {{ wtf.form_field(form.submit, button_map={'submit':'light'}) }}
+       </form>
+       <br><br>
+       <p>New User? <a href="{{ url_for('auth.register') }}">Click to Register!</a></p>
+   </div>
+</center>
+{% endblock %}
+
+{% block styles %}
+{{super()}}
+<style>
+  body {
+      background-color: #337ab7;
+  }
+
+  .control-label {display: none;}
+  .center-vertical {
+      margin-top: 25vh;
+      margin-left: 40vw;
+      margin-right: 40vw;
+      background-color: white;
+      padding-top: 1vh;
+      padding-bottom: 1vh;
+      padding-left: 1vw;
+      padding-right: 1vw;
+  }
+
+</style>
+{% endblock %}
